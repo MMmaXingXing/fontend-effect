@@ -60,9 +60,18 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: "../../",
-              plugins: [require("autoprefixer")],
+                publicPath: path.join(__dirname, "public"),
             },
+            // options: {
+            //   publicPath: "../../",
+            //   // publicPath: (resourcePath, context) => {
+            //   //   // publicPath 是资源相对于上下文的相对路径
+            //   //   // 例如：对于 ./css/admin/main.css publicPath 将会是 ../../
+            //   //   // 而对于 ./css/main.css publicPath 将会是 ../
+            //   //   console.log(resourcePath);
+            //   //   return path.relative(path.dirname(resourcePath), context) + '/';
+            //   // },
+            // },
           },
           { loader: 'style-loader' },
           { loader: 'css-loader' },
@@ -86,7 +95,7 @@ module.exports = {
     ...hwp,
     // 将css进行输出
     new MiniCssExtractPlugin({
-      filename:'css/[name].[chunkhash].css'   //输出的css文件名，放置在dist目录下
+      filename:'css/[name].[chunkhash].css',   //输出的css文件名，放置在dist目录下
     }),
     // 自定义webpack的消息提示
     new FriendlyErrorsWebpackPlugin({
