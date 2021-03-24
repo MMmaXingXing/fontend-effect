@@ -1,3 +1,4 @@
+// common规范
 const path = require('path');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 // css加载插件
@@ -9,7 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const hwp = [
   new HtmlWebpackPlugin({
     filename: "slider-animate.html",
-    template: path.join(__dirname, "./components/slider/slider-animate/slider-animate.html"),
+    template: path.join(__dirname, "./src/components/slider/slider-animate/slider-animate.html"),
     title: "首页",
     // chunks: ["slider-animate"], // 使用哪些打包的js文件
     inject : 'body',
@@ -29,7 +30,7 @@ const hwp = [
 module.exports = {
   mode: 'development',
   entry: {
-    slider_animate: path.join(__dirname, "./components/slider/slider-animate/index.ts"),
+    slider_animate: path.join(__dirname, "./src/components/slider/slider-animate/index.ts"),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
